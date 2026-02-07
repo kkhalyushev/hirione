@@ -32,8 +32,6 @@ export function About() {
                                 className="object-cover"
                             />
                         </div>
-                        {/* Decorative element */}
-                        <div className="absolute -bottom-6 -right-6 -z-10 h-32 w-32 rounded-full bg-secondary/20" />
                     </motion.div>
 
                     {/* Content */}
