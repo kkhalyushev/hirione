@@ -33,6 +33,8 @@ export type ContentData = {
     reviews: {
         title: string;
         subtitle: string;
+        showAll: string;
+        showLess: string;
         items: {
             name: string;
             role: string;
@@ -241,6 +243,8 @@ export const content: { en: ContentData; ru: ContentData } = {
         reviews: {
             title: "Client Reviews",
             subtitle: "Stories from people I've worked with.",
+            showAll: "Show All Reviews",
+            showLess: "Show Less",
             items: [
                 {
                     name: "Tim",
@@ -568,6 +572,8 @@ export const content: { en: ContentData; ru: ContentData } = {
         reviews: {
             title: "Отзывы клиентов",
             subtitle: "Истории людей, с которыми я работала.",
+            showAll: "Показать все отзывы",
+            showLess: "Скрыть",
             items: [
                 {
                     name: "Tim",

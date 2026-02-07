@@ -64,7 +64,7 @@ export function Hero() {
                     transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
                 >
-                    <div className="relative h-[140px] w-[100px] sm:h-[550px] sm:w-[400px] lg:h-[650px] lg:w-[480px]">
+                    <div className="relative h-[280px] w-[200px] sm:h-[550px] sm:w-[400px] lg:h-[650px] lg:w-[480px]">
                         {/* Arch Shape Mask */}
                         <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 to-transparent rounded-t-[240px] rounded-b-[40px] -rotate-3 scale-105" />
 

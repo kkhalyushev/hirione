@@ -3,8 +3,8 @@
 import { content } from "@/data/content";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { Quote } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Quote, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 
@@ -12,12 +12,26 @@ export function Reviews() {
     const { language } = useLanguage();
     const t = content[language].reviews;
     const [filter, setFilter] = useState<"All" | "Resume" | "LinkedIn" | "Career" | "Job Search">("All");
+    const [showAll, setShowAll] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detect mobile screen size
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 640);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const categories = ["All", "Resume", "LinkedIn", "Career"] as const;
 
     const filteredItems = t.items.filter(item =>
         filter === "All" ? true : item.category === filter
     );
+
+    // Limit to 3 reviews on mobile unless showAll is true
+    const displayedItems = (isMobile && !showAll) ? filteredItems.slice(0, 3) : filteredItems;
+    const hasMore = isMobile && filteredItems.length > 3;
 
     return (
         <section className="py-24 bg-background">
@@ -52,11 +66,24 @@ export function Reviews() {
                     className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
                 >
                     <AnimatePresence>
-                        {filteredItems.map((item, index) => (
+                        {displayedItems.map((item, index) => (
                             <ReviewCard key={item.name + index} item={item} />
                         ))}
                     </AnimatePresence>
                 </motion.div>
+
+                {/* Show All / Show Less Button - only on mobile */}
+                {hasMore && (
+                    <div className="mt-12 text-center sm:hidden">
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-base shadow-lg hover:bg-primary/90 transition-all"
+                        >
+                            {showAll ? t.showLess : t.showAll}
+                            <ChevronDown className={`h-5 w-5 transition-transform ${showAll ? 'rotate-180' : ''}`} />
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );
