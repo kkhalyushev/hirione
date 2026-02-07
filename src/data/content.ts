@@ -75,7 +75,7 @@ export const content: { en: ContentData; ru: ContentData } = {
         },
         about: {
             title: "About Me",
-            description: "I have been a Recruitment Leader and People Manager for years. My goal is to help you navigate your career path, whether you need a resume overhaul, LinkedIn optimization, or strategic career advice. I can share the management approach that makes the team happy and motivates them bring results we all need.",
+            description: "My name is Valentina, I am an accomplished Recruitment and HR leader with over 15 years of experience in international IT, FinTech, RetailTech, GameDev and other companies and startups. I have extensive expertise in talent acquisition, people operations, HR and recruitment team management. I have hired over 1000 professionals within the EU, US, UK, Asia and CIS and worked with many team leaders and managers to learn their needs, accomplishments and motivation. See my full experience on LinkedIn. Since 2020 I've been career counselling and helping people land the best career opportunities in the EU, UK and Worldwide. I also successfully hire talents for companies globally.",
             linkedinParams: "Connect on LinkedIn",
         },
         services: {
@@ -402,7 +402,7 @@ export const content: { en: ContentData; ru: ContentData } = {
         },
         about: {
             title: "Обо мне",
-            description: "Я много лет работаю руководителем в рекрутменте. Моя цель — помочь вам в развитии карьеры, будь то переработка резюме, оптимизация LinkedIn или стратегические карьерные советы.",
+            description: "Меня зовут Валентина, я опытный руководитель по набору персонала и HR с более чем 15-летним опытом работы в международных IT, FinTech, RetailTech, GameDev компаниях и стартапах. У меня обширный опыт в привлечении талантов, управлении персоналом, HR и управлении командами по подбору персонала. Я наняла более 1000 специалистов в ЕС, США, Великобритании, Азии и СНГ и работала со многими руководителями команд и менеджерами, чтобы понять их потребности, достижения и мотивацию. Смотрите мой полный опыт в LinkedIn. С 2020 года я занимаюсь карьерным консультированием и помогаю людям находить лучшие карьерные возможности в ЕС, Великобритании и по всему миру. Я также успешно нанимаю таланты для компаний по всему миру.",
             linkedinParams: "Подписаться",
         },
         services: {
