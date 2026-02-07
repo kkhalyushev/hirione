@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm Cream Background & Stone Foreground */
+  --background: 253 251 247;
+  /* #FDFBF7 - Warm Ivory */
+  --foreground: 41 37 36;
+  /* Stone-800 - Warm Graphite */
+
+  --primary: 232 168 124;
+  /* #E8A87C - Soft Terracotta/Peach Accent */
+  --primary-foreground: 255 255 255;
+
+  --secondary: 231 229 228;
+  /* Stone-200 */
+  --secondary-foreground: 28 25 23;
+
+  --muted: 245 245 244;
+  /* Stone-100 */
+  --muted-foreground: 120 113 108;
+  /* Stone-500 */
+
+  --accent: 250 250 249;
+  /* Stone-50 */
+  --accent-foreground: 41 37 36;
+
+  --card: 255 255 255;
+  --card-foreground: 41 37 36;
+
+  --border: 231 229 228;
+  /* Stone-200 */
+  --input: 231 229 228;
+
+  --font-inter: "Inter", sans-serif;
+  --font-libre: "Libre Baskerville", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 
+       Even in dark mode, we want a warmer, softer feel.
+       Avoid pure black. Use deep warm stone/brown-grey.
+    */
+    --background: 28 25 23;
+    /* Stone-900 */
+    --foreground: 231 229 228;
+    /* Stone-200 */
+
+    --primary: 214 150 107;
+    /* Slightly darker accent for dark mode */
+    --primary-foreground: 255 255 255;
+
+    --secondary: 41 37 36;
+    --secondary-foreground: 231 229 228;
+
+    --muted: 41 37 36;
+    --muted-foreground: 168 162 158;
+
+    --accent: 41 37 36;
+    --accent-foreground: 231 229 228;
+
+    --card: 28 25 23;
+    --card-foreground: 231 229 228;
+
+    --border: 41 37 36;
+    --input: 41 37 36;
+  }
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  font-family: var(--font-inter);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-libre);
+}
