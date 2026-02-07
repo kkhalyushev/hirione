@@ -9,7 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
+        <main className="flex min-h-screen flex-col bg-background text-foreground">
             <Header />
             <Hero />
             <About />

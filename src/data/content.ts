@@ -37,8 +37,9 @@ export type ContentData = {
             name: string;
             role: string;
             content: string;
-            category: "Resume" | "LinkedIn" | "Career" | "Coaching" | "Job Search"; // NEW: Category
-            isHighlight?: boolean; // NEW: Highlight flag
+            category: "Resume" | "LinkedIn" | "Career" | "Coaching" | "Job Search";
+            image?: string; // NEW: Avatar image path
+            isHighlight?: boolean;
             originalLang?: "ru" | "en";
         }[];
     };
@@ -244,58 +245,128 @@ export const content: { en: ContentData; ru: ContentData } = {
                 {
                     name: "Tim",
                     role: "PR Manager",
-                    content: "I highly recommend Valentina as a career and recruitment advisor. She helps with resumes and mock interviews, giving valuable insights that build confidence.",
+                    content: "I highly recommend Valentina as a career and recruitment advisor. She is an experienced professional and helped me a lot with my resume and gave me valuable insights during our mock interview. It really helped me gain confidence before further interviews, which I think is the most important thing in the hiring process",
                     category: "Career",
+                    image: "/images/avatars/tim.jpeg",
                     isHighlight: false
                 },
                 {
                     name: "Andrey",
                     role: "Senior Software Engineer",
-                    content: "Valentina has an incredible talent for transforming resumes into powerful career tools. She strategically rewrites them to highlight strengths, optimize for ATS systems, and align perfectly with industry expectations.",
+                    content: "Valentina has an incredible talent for transforming resumes into powerful career tools. Her deep understanding of the hiring process, combined with her sharp eye for detail, makes her the perfect person to help anyone stand out in today’s competitive job market. She doesn’t just tweak resumes, she strategically rewrites them to highlight strengths, optimize for ATS systems, and align perfectly with industry expectations.",
                     category: "Resume",
+                    image: "/images/avatars/andrey.jpeg",
                     isHighlight: true
                 },
                 {
                     name: "Polina",
                     role: "Startup co-founder",
-                    content: "Her career advice and LinkedIn profile optimization strategies genuinely work and help professionals stand out among many others.",
+                    content: "I am incredibly grateful to Valentina for her professionalism, attention to detail, and ability to see the true potential in candidates. Her career advice and LinkedIn profile optimization strategies genuinely work and help professionals stand out among many others.",
                     category: "LinkedIn",
+                    image: "/images/avatars/polina.jpeg",
                     isHighlight: false
                 },
                 {
                     name: "Tetiana",
                     role: "Agile Coach",
-                    content: "She is a real professional! Valentina knows exactly how to make a professional profile and CV. My CV has become much better and more understandable.",
+                    content: "She is a real professional! Valentina knows exactly how to make a professional profile and CV. My CV has become much better and more understandable. And my LinkedIn profile is more professional. She is pleasant to talk to and responsible. She did everything quickly and efficiently.",
                     category: "Resume",
                     isHighlight: false
                 },
                 {
                     name: "Artem",
                     role: "Software Engineer",
-                    content: "Valentina was instrumental in refining my CV, optimizing my LinkedIn profile, and enhancing my job search strategy. Her expert guidance helped me stand out to recruiters.",
+                    content: "Valentina was instrumental in refining my CV, optimizing my LinkedIn profile, and enhancing my job search strategy. Her expert guidance helped me stand out to recruiters, leading to more opportunities and ultimately landing a great job.",
                     category: "Job Search",
+                    image: "/images/avatars/artem.jpeg",
+                    isHighlight: false
+                },
+                {
+                    name: "Daria, PhD",
+                    role: "Research Scientist",
+                    content: "Valentina was an incredible help when I was working on my CV. Her keen attention to detail and insightful advice made a huge difference in how I presented my experience and skills. Beyond her expertise, she is patient, supportive, and genuinely cares about helping others succeed.",
+                    category: "Resume",
+                    image: "/images/avatars/daria.jpeg",
+                    isHighlight: false
+                },
+                {
+                    name: "Julia",
+                    role: "Product Manager",
+                    content: "Valentina is a fantastic recruiter and also a great psychologist. Her support during a difficult period in my career was invaluable. She is professional, insightful, and genuinely caring, making the whole process much smoother. I highly recommend working with her!",
+                    category: "Career",
+                    isHighlight: true
+                },
+                {
+                    name: "Sergey",
+                    role: "Delivery Leader",
+                    content: "Valentina and I worked together for many years, and she greatly influenced my career. She is friendly, professional, and always ready to help beyond her regular responsibilities. Valentina is an excellent specialist in recruiting, hiring and career development.",
+                    category: "Career",
+                    image: "/images/avatars/sergey.jpeg",
+                    isHighlight: false
+                },
+                {
+                    name: "Vladimir",
+                    role: "Product Manager",
+                    content: "Valentina is an outstanding professional who excels in her field. Be sure to reach out to her if you need career advice.",
+                    category: "Career",
+                    image: "/images/avatars/vladimir.jpeg",
                     isHighlight: false
                 },
                 {
                     name: "Albina",
                     role: "Manager",
-                    content: "Valentina is the best career consultant. Our communication was very therapeutic. I looked at my experience from different angles and believed in myself!",
+                    content: "Valentina is the best career consultant, who answered a million of my questions and asked a million questions to me. Our communication was very therapeutic for me. I looked at my experience from different angles, realized that I am a cool specialist, believed in myself and in my work!",
                     category: "Career",
                     isHighlight: false
                 },
                 {
                     name: "Kate",
                     role: "Project Manager",
-                    content: "After our meeting, I was inspired, overhauled my resume, made it logical and readable. Softness and delicacy coupled with honesty are definitely your strong qualities.",
+                    content: "After our meeting, I was inspired, overhauled my resume, made it logical and readable, I'm delighted myself! Thank you for softly highlighting my weak and illogical places and helping me package my skills according to the new task in my career.",
                     category: "Resume",
                     isHighlight: false
                 },
                 {
-                    name: "Julia",
-                    role: "Product Manager",
-                    content: "Valentina is a fantastic recruiter and also a great psychologist. Her support during a difficult period in my career was invaluable. Professional, insightful, and genuinely caring.",
+                    name: "Maxim",
+                    role: "Engineering Manager",
+                    content: "By the way, thank you very much for the work done, now I send out my CV without blushing... And I recommend you to all my employees! You are very cool. Believe me, I scoured the market))) I know what to compare with...",
+                    category: "Resume",
+                    isHighlight: false
+                },
+                {
+                    name: "Polina",
+                    role: "Product Marketing Manager",
+                    content: "Thank you, +10 points to your karma, and I figured out that I don't want to go to an overly energetic startup founder=)",
                     category: "Career",
-                    isHighlight: true
+                    isHighlight: false
+                },
+                {
+                    name: "Katerina",
+                    role: "Innovations Lead",
+                    content: "I worked with Valentina on creating professional profile projects on LinkedIn and a resume. Valentina's ability to highlight key aspects of my experience and skills and brightly present them... is truly impressive.",
+                    category: "LinkedIn",
+                    isHighlight: false
+                },
+                {
+                    name: "Anastasia",
+                    role: "Project Manager",
+                    content: "The CV in English has already flown by referral! And generally thank you for the work done, I didn't expect that in the end there would be as many as six resumes!❤️",
+                    category: "Resume",
+                    isHighlight: false
+                },
+                {
+                    name: "Alina",
+                    role: "Director of People",
+                    content: "Valya, you are a Mega talent and brain! Very Cool work: both analytical and, so to speak, practical! Thank you for the Linked )",
+                    category: "LinkedIn",
+                    isHighlight: false
+                },
+                {
+                    name: "Nick",
+                    role: "Software Architect",
+                    content: "It turned out very, very well, a directly logical career development turned out. Reads like a good story!",
+                    category: "Career",
+                    isHighlight: false
                 }
             ]
         },
@@ -501,58 +572,128 @@ export const content: { en: ContentData; ru: ContentData } = {
                 {
                     name: "Tim",
                     role: "PR Manager",
-                    content: "Я очень рекомендую Валентину как карьерного консультанта. Она опытный профессионал, очень помогла мне с резюме и дала ценные инсайты на пробном интервью.",
+                    content: "Я очень рекомендую Валентину как карьерного консультанта. Она опытный профессионал, очень помогла мне с резюме и дала ценные инсайты на пробном интервью. Это действительно помогло мне обрести уверенность перед дальнейшими интервью, что, я считаю, самое важное в процессе найма.",
                     category: "Career",
+                    image: "/images/avatars/tim.jpeg",
                     isHighlight: false
                 },
                 {
                     name: "Andrey",
                     role: "Senior Software Engineer",
-                    content: "У Валентины невероятный талант превращать резюме в мощный карьерный инструмент. Она стратегически переписывает его, чтобы подчеркнуть сильные стороны и пройти ATS.",
+                    content: "У Валентины невероятный талант превращать резюме в мощные карьерные инструменты. Её глубокое понимание процесса найма в сочетании с вниманием к деталям делает её идеальным специалистом, чтобы помочь кому угодно выделиться на современном конкурентном рынке труда. Она не просто правит резюме, она стратегически переписывает их, чтобы подчеркнуть сильные стороны.",
                     category: "Resume",
+                    image: "/images/avatars/andrey.jpeg",
                     isHighlight: true
                 },
                 {
                     name: "Polina",
                     role: "Startup co-founder",
-                    content: "Её карьерные советы и стратегии для LinkedIn действительно работают и помогают выделиться. Валентина не просто рекрутер, а настоящий эксперт.",
+                    content: "Я невероятно благодарна Валентине за её профессионализм, внимание к деталям и способность видеть истинный потенциал в кандидатах. Её карьерные советы и стратегии оптимизации профиля LinkedIn действительно работают и помогают профессионалам выделиться среди многих других.",
                     category: "LinkedIn",
+                    image: "/images/avatars/polina.jpeg",
                     isHighlight: false
                 },
                 {
                     name: "Tetiana",
                     role: "Agile Coach",
-                    content: "Валентина точно знает, как сделать профессиональный профиль и CV. Моё резюме стало намного лучше.",
+                    content: "Она настоящий профессионал! Валентина точно знает, как создать профессиональный профиль и CV. Моё резюме стало намного лучше и понятнее. И мой профиль в LinkedIn стал более профессиональным. С ней приятно общаться, она ответственна. Сделала всё быстро и качественно.",
                     category: "Resume",
                     isHighlight: false
                 },
                 {
                     name: "Artem",
                     role: "Software Engineer",
-                    content: "Валентина сыграла ключевую роль в улучшении моего резюме и стратегии поиска. Её экспертное руководство помогло мне выделиться для рекрутеров.",
+                    content: "Валентина сыграла ключевую роль в улучшении моего резюме, оптимизации профиля LinkedIn и улучшении стратегии поиска работы. Её экспертное руководство помогло мне выделиться для рекрутеров, что привело к большему количеству возможностей и, в конечном итоге, к отличной работе.",
                     category: "Job Search",
+                    image: "/images/avatars/artem.jpeg",
+                    isHighlight: false
+                },
+                {
+                    name: "Daria, PhD",
+                    role: "Research Scientist",
+                    content: "Валентина оказала невероятную помощь, когда я работала над своим CV. Её внимание к деталям и глубокие советы сыграли огромную роль в том, как я представила свой опыт и навыки. Помимо её экспертности, она терпелива, оказывает поддержку и искренне заботится о том, чтобы помочь другим добиться успеха.",
+                    category: "Resume",
+                    image: "/images/avatars/daria.jpeg",
+                    isHighlight: false
+                },
+                {
+                    name: "Julia",
+                    role: "Product Manager",
+                    content: "Для каждого дела должен быть свой профессионал: я нашла работу мечты, а помогала мне в этом ты! Целый год я искала работу сама, а с тобой справились за несколько месяцев. Ты круто ищешь вакансии, а резюме покорило всех. Спасибо огромное!",
+                    category: "Career",
+                    isHighlight: true
+                },
+                {
+                    name: "Sergey",
+                    role: "Delivery Leader",
+                    content: "Мы с Валентиной работали вместе много лет, и она сильно повлияла на мою карьеру. Она дружелюбна, профессиональна и всегда готова помочь сверх своих обычных обязанностей. Валентина — отличный специалист в области рекрутмента, найма и развития карьеры.",
+                    category: "Career",
+                    image: "/images/avatars/sergey.jpeg",
+                    isHighlight: false
+                },
+                {
+                    name: "Vladimir",
+                    role: "Product Manager",
+                    content: "Валентина — выдающийся профессионал, преуспевающий в своей области. Обязательно обратитесь к ней, если вам нужны карьерные советы.",
+                    category: "Career",
+                    image: "/images/avatars/vladimir.jpeg",
                     isHighlight: false
                 },
                 {
                     name: "Albina",
                     role: "Manager",
-                    content: "Валентина лучший карьерный консультант. Наше общение было очень терапевтичным. Я поверила в себя!",
+                    content: "Валентина лучший карьерный консультант, которая ответила на миллион моих вопросов, задала миллион вопросов мне. Наше общение было очень терапевтичным. Я посмотрела на свой опыт с разных сторон, поняла, что я крутой спец, поверила в себя и в свою работу!",
                     category: "Career",
                     isHighlight: false
                 },
                 {
                     name: "Kate",
                     role: "Project Manager",
-                    content: "После нашей встречи я вдохновилась, перелопатила всё резюме, сделала его логичным. Мягкость и деликатность — твои сильные качества.",
+                    content: "После нашей встречи я вдохновилась, перелопатила всё резюме, сделала его логичным и читаемыми, сама в восторге! Благодарю за то, что мягко подсветила мне слабые и нелогичные места и помогла упаковать мои навыки согласно новой задаче в карьере.",
                     category: "Resume",
                     isHighlight: false
                 },
                 {
-                    name: "Julia",
-                    role: "Product Manager",
-                    content: "Валентина — фантастический рекрутер и отличный психолог. Её поддержка в трудный период была бесценна.",
+                    name: "Maxim",
+                    role: "Engineering Manager",
+                    content: "Кстати спасибо большое за проделанную работу, теперь не краснея рассылаю свое CV... И всем своим сотрудникам тебя рекомендую! Ты очень классная. Поверь я прошерстил маркет))) Знаю с чем сравнить...",
+                    category: "Resume",
+                    isHighlight: false
+                },
+                {
+                    name: "Polina",
+                    role: "Product Marketing Manager",
+                    content: "спасибо, к твоей карме прибавилось 10 пунктов, а я разобралась, что не хочу идти к слишком энергичному стартаперу=)",
                     category: "Career",
-                    isHighlight: true
+                    isHighlight: false
+                },
+                {
+                    name: "Katerina",
+                    role: "Innovations Lead",
+                    content: "Я работала с Валентиной в рамках составления проектов профессионального профиля на LinkedIn и резюме. Способность Валентины выделить ключевые аспекты моего опыта и навыков и ярко представить их... действительно впечатляет.",
+                    category: "LinkedIn",
+                    isHighlight: false
+                },
+                {
+                    name: "Anastasia",
+                    role: "Project Manager",
+                    content: "CV-шка на английском уже улетела по рефералке в <...>! и вообще спасибо за проделанную работу, я не ожидала, что в итоге резюме будет аж шесть штуков!❤️",
+                    category: "Resume",
+                    isHighlight: false
+                },
+                {
+                    name: "Alina",
+                    role: "Director of People",
+                    content: "Валя , ты Мега талант и мозг! Очень Крутая работа : как аналитическая, так и , так сказать, практическая! Спасибо тебе за линкед )",
+                    category: "LinkedIn",
+                    isHighlight: false
+                },
+                {
+                    name: "Nick",
+                    role: "Software Architect",
+                    content: "а очень и очень вышло, прямо так логичное развитие карьеры получилось читается как хорошая история!",
+                    category: "Career",
+                    isHighlight: false
                 }
             ]
         },
