@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { useState } from "react";
-import { X, ArrowRight } from "lucide-react";
+import { X, ArrowRight, Check } from "lucide-react";
 
 export function Services() {
     const { language } = useLanguage();
@@ -27,31 +27,37 @@ export function Services() {
                     </p>
                 </div>
 
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {tServices.items.map((service, index) => (
-                        <div
+                        <motion.div
                             key={service.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.05 }}
                             onClick={() => setSelectedServiceId(service.id)}
-                            className="group relative cursor-pointer overflow-hidden rounded-3xl bg-white p-8 shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_30px_rgb(0,0,0,0.06)] dark:bg-stone-900 border border-stone-100 dark:border-stone-800"
+                            className="group relative cursor-pointer overflow-hidden rounded-2xl bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md dark:bg-stone-900 border border-stone-100 dark:border-stone-800 flex flex-col justify-between"
                         >
-                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8A87C]/10 text-[#E8A87C]">
-                                {index === 0 && <span className="text-xl">📄</span>}
-                                {index === 1 && <span className="text-xl">💼</span>}
-                                {index === 2 && <span className="text-xl">🧭</span>}
-                                {index === 3 && <span className="text-xl">💬</span>}
-                                {index === 4 && <span className="text-xl">🔍</span>}
-                                {index === 5 && <span className="text-xl">👥</span>}
-                                {index === 6 && <span className="text-xl">⚙️</span>}
-                            </div>
-                            <h3 className="mb-3 text-xl font-serif font-bold text-stone-900 dark:text-stone-100 group-hover:text-[#D6966B] transition-colors">{service.title}</h3>
-                            <p className="text-stone-500 dark:text-stone-400 leading-relaxed font-light line-clamp-3">
-                                {service.description}
-                            </p>
+                            <div>
+                                <h3 className="mb-3 text-xl font-serif font-bold text-stone-900 dark:text-stone-100 group-hover:text-[#E8A87C] transition-colors">
+                                    {service.title}
+                                </h3>
 
-                            <div className="mt-6 flex items-center text-sm font-medium text-[#E8A87C] opacity-0 transition-opacity group-hover:opacity-100">
-                                {t.ui.readMore} <ArrowRight className="ml-2 h-4 w-4" />
+                                {/* Bullets */}
+                                <ul className="mb-6 space-y-2">
+                                    {service.bullets.map((bullet, i) => (
+                                        <li key={i} className="flex items-start text-sm text-stone-600 dark:text-stone-400">
+                                            <Check className="mr-2 h-4 w-4 text-[#E8A87C] shrink-0" />
+                                            <span>{bullet}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                        </div>
+
+                            <div className="flex items-center text-sm font-medium text-[#E8A87C] group-hover:underline decoration-[#E8A87C]/50 underline-offset-4">
+                                {t.ui.readMore} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
@@ -96,7 +102,7 @@ export function Services() {
                                 </div>
 
                                 <div className="pt-8">
-                                    <Button size="lg" className="w-full rounded-full bg-stone-900 text-stone-50 hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900" asChild>
+                                    <Button size="lg" className="w-full rounded-full bg-[#E8A87C] text-white hover:bg-[#D6966B]" asChild>
                                         <Link href="#contact">{t.hero.ctaPrimary}</Link>
                                     </Button>
                                 </div>

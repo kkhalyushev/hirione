@@ -30,28 +30,29 @@ export function Header() {
             )}
         >
             <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
-                <div className="flex items-center gap-4">
-                    <Link href="/" className="text-xl font-bold font-serif tracking-tight hover:opacity-80 text-stone-900 dark:text-stone-50">
-                        Valentina Dikanskaia
-                    </Link>
-                    <LanguageSwitcher className="hidden sm:flex" />
-                </div>
+                <Link href="/" className="text-xl font-bold font-serif tracking-tight hover:opacity-80 text-stone-900 dark:text-stone-50">
+                    Valentina Dikanskaia
+                </Link>
 
-                <nav className="flex items-center gap-4 sm:gap-6">
-                    <Link
-                        href="#contact"
-                        className="text-sm font-medium transition-colors hover:text-stone-900 dark:hover:text-stone-50 text-stone-600 dark:text-stone-300"
-                    >
-                        {t.hero.ctaPrimary}
-                    </Link>
-                    <Link
-                        href="#pricing"
-                        className="text-sm font-medium transition-colors hover:text-stone-900 dark:hover:text-stone-50 text-stone-600 dark:text-stone-300"
-                    >
-                        {t.hero.ctaSecondary}
-                    </Link>
-                    <LanguageSwitcher className="flex sm:hidden" />
-                </nav>
+                <div className="flex items-center gap-6">
+                    <nav className="hidden sm:flex items-center gap-6">
+                        <Link
+                            href="#contact"
+                            className="text-sm font-medium transition-colors hover:text-stone-900 dark:hover:text-stone-50 text-stone-600 dark:text-stone-300"
+                        >
+                            {t.hero.ctaPrimary}
+                        </Link>
+                        <Link
+                            href="#pricing"
+                            className="text-sm font-medium transition-colors hover:text-stone-900 dark:hover:text-stone-50 text-stone-600 dark:text-stone-300"
+                        >
+                            {t.hero.ctaSecondary}
+                        </Link>
+                    </nav>
+
+                    {/* Single Switcher, Right Aligned */}
+                    <LanguageSwitcher />
+                </div>
             </div>
         </header>
     );

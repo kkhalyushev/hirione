@@ -17,6 +17,7 @@ export type ContentData = {
             id: string;
             title: string;
             description: string; // Short summary
+            bullets: string[]; // NEW: 3 outcome bullets
             details: {
                 title: string;
                 content: string;
@@ -36,6 +37,8 @@ export type ContentData = {
             name: string;
             role: string;
             content: string;
+            category: "Resume" | "LinkedIn" | "Career" | "Coaching" | "Job Search"; // NEW: Category
+            isHighlight?: boolean; // NEW: Highlight flag
             originalLang?: "ru" | "en";
         }[];
     };
@@ -67,7 +70,7 @@ export const content: { en: ContentData; ru: ContentData } = {
             title: "Resume, LinkedIn and Career Advice",
             description: "Professional recruitment services. Stand out in today's competitive job market with a tailored resume and optimized LinkedIn profile.",
             ctaPrimary: "Contact me",
-            ctaSecondary: "How Much",
+            ctaSecondary: "View Pricing",
         },
         about: {
             title: "About Me",
@@ -82,6 +85,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "resume",
                     title: "Resume Services",
                     description: "Custom templates, goal-oriented rewriting, and ATS optimization.",
+                    bullets: ["ATS-Optimized", "Custom Template", "Goal-Oriented"],
                     details: [
                         {
                             title: "Custom Template",
@@ -101,6 +105,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "linkedin",
                     title: "LinkedIn Profile",
                     description: "Optimization, visibility strategies, and SSI improvement.",
+                    bullets: ["Profile Audit", "SSI Growth", "Visibility Strategy"],
                     details: [
                         {
                             title: "What is LinkedIn",
@@ -124,6 +129,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "career-counselling",
                     title: "Career Counselling",
                     description: "Navigating burnout, salary negotiation, and career changes.",
+                    bullets: ["Salary Negotiation", "Burnout Recovery", "Career Clarity"],
                     details: [
                         {
                             title: "You Want Improvements",
@@ -147,6 +153,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "interview-prep",
                     title: "Interview Preparation",
                     description: "Mock interviews, question interpretation, and confidence building.",
+                    bullets: ["Mock Interview", "Q&A Strategy", "Confidence Boost"],
                     details: [
                         {
                             title: "Gain Confidence",
@@ -166,6 +173,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "job-search",
                     title: "Job Search",
                     description: "Strategy, sources, application support, and list of options.",
+                    bullets: ["Search Strategy", "20+ Job Leads", "Application Support"],
                     details: [
                         {
                             title: "What You Want",
@@ -189,6 +197,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "coaching-recruiters",
                     title: "Coaching Recruiters",
                     description: "Sourcing strategies, process optimization, and team leadership.",
+                    bullets: ["Sourcing Tactics", "Process Optimization", "Leadership Skills"],
                     details: [
                         {
                             title: "Recruitment Process",
@@ -212,6 +221,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "hr-process",
                     title: "HR Process Management",
                     description: "Onboarding, performance review, reporting, and process creation.",
+                    bullets: ["Onboarding", "Performance Review", "Reporting"],
                     details: [
                         {
                             title: "HR Process Management",
@@ -234,42 +244,58 @@ export const content: { en: ContentData; ru: ContentData } = {
                 {
                     name: "Tim",
                     role: "PR Manager",
-                    content: "I highly recommend Valentina as a career and recruitment advisor. She is an experienced professional and helped me a lot with my resume and gave me valuable insights during our mock interview. It really helped me gain confidence before further interviews, which I think is the most important thing in the hiring process"
+                    content: "I highly recommend Valentina as a career and recruitment advisor. She helps with resumes and mock interviews, giving valuable insights that build confidence.",
+                    category: "Career",
+                    isHighlight: false
                 },
                 {
                     name: "Andrey",
                     role: "Senior Software Engineer",
-                    content: "Valentina has an incredible talent for transforming resumes into powerful career tools. Her deep understanding of the hiring process, combined with her sharp eye for detail, makes her the perfect person to help anyone stand out in today’s competitive job market. She doesn’t just tweak resumes, she strategically rewrites them to highlight strengths, optimize for ATS systems, and align perfectly with industry expectations."
+                    content: "Valentina has an incredible talent for transforming resumes into powerful career tools. She strategically rewrites them to highlight strengths, optimize for ATS systems, and align perfectly with industry expectations.",
+                    category: "Resume",
+                    isHighlight: true
                 },
                 {
                     name: "Polina",
                     role: "Startup co-founder",
-                    content: "I am incredibly grateful to Valentina for her professionalism, attention to detail, and ability to see the true potential in candidates. Her career advice and LinkedIn profile optimization strategies genuinely work and help professionals stand out among many others."
+                    content: "Her career advice and LinkedIn profile optimization strategies genuinely work and help professionals stand out among many others.",
+                    category: "LinkedIn",
+                    isHighlight: false
                 },
                 {
                     name: "Tetiana",
                     role: "Agile Coach",
-                    content: "She is a real professional! Valentina knows exactly how to make a professional profile and CV. My CV has become much better and more understandable. And my LinkedIn profile is more professional."
+                    content: "She is a real professional! Valentina knows exactly how to make a professional profile and CV. My CV has become much better and more understandable.",
+                    category: "Resume",
+                    isHighlight: false
                 },
                 {
                     name: "Artem",
                     role: "Software Engineer",
-                    content: "Valentina was instrumental in refining my CV, optimizing my LinkedIn profile, and enhancing my job search strategy. Her expert guidance helped me stand out to recruiters, leading to more opportunities."
+                    content: "Valentina was instrumental in refining my CV, optimizing my LinkedIn profile, and enhancing my job search strategy. Her expert guidance helped me stand out to recruiters.",
+                    category: "Job Search",
+                    isHighlight: false
                 },
                 {
                     name: "Albina",
                     role: "Manager",
-                    content: "Valentina is the best career consultant who answered a million of my questions and asked a million questions back. Our communication was very therapeutic for me. I looked at my experience from different angles, realized I'm a cool specialist, and believed in myself! Valentina is love."
+                    content: "Valentina is the best career consultant. Our communication was very therapeutic. I looked at my experience from different angles and believed in myself!",
+                    category: "Career",
+                    isHighlight: false
                 },
                 {
                     name: "Kate",
                     role: "Project Manager",
-                    content: "Valya, thank you so much for the consultation and the opportunity to look at my experience from the other side. After our meeting, I was inspired, overhauled my resume, made it logical and readable, I'm thrilled! Softness and delicacy coupled with honesty are definitely your strong qualities."
+                    content: "After our meeting, I was inspired, overhauled my resume, made it logical and readable. Softness and delicacy coupled with honesty are definitely your strong qualities.",
+                    category: "Resume",
+                    isHighlight: false
                 },
                 {
                     name: "Julia",
                     role: "Product Manager",
-                    content: "Valentina is a fantastic recruiter and also a great psychologist. Her support during a difficult period in my career was invaluable. She is professional, insightful, and genuinely caring, making the whole process much smoother. I highly recommend working with her!"
+                    content: "Valentina is a fantastic recruiter and also a great psychologist. Her support during a difficult period in my career was invaluable. Professional, insightful, and genuinely caring.",
+                    category: "Career",
+                    isHighlight: true
                 }
             ]
         },
@@ -301,21 +327,22 @@ export const content: { en: ContentData; ru: ContentData } = {
             title: "Резюме, LinkedIn и Карьерные Консультации",
             description: "Профессиональные услуги рекрутера. Выделитесь на современном рынке труда с помощью индивидуального резюме и оптимизированного профиля LinkedIn.",
             ctaPrimary: "Связаться",
-            ctaSecondary: "Цены",
+            ctaSecondary: "Узнать цены",
         },
         about: {
             title: "Обо мне",
-            description: "Я много лет работаю руководителем в рекрутменте (Recruitment Lead) и People Manager. Моя цель — помочь вам в развитии карьеры, будь то переработка резюме, оптимизация LinkedIn или стратегические карьерные советы. Я могу поделиться подходом к управлению, который делает команду счастливой и мотивирует её приносить результаты.",
+            description: "Я много лет работаю руководителем в рекрутменте. Моя цель — помочь вам в развитии карьеры, будь то переработка резюме, оптимизация LinkedIn или стратегические карьерные советы.",
             linkedinParams: "Подписаться",
         },
         services: {
             title: "Мои услуги",
-            subtitle: "Комплексные решения для достижения ваших карьерных целей.",
+            subtitle: "Комплексные решения для вашей карьеры.",
             items: [
                 {
                     id: "resume",
                     title: "Резюме (CV)",
                     description: "Индивидуальные шаблоны, переписывание под цели и оптимизация для ATS.",
+                    bullets: ["Оптимизация для ATS", "Индивидуальный шаблон", "Ориентация на цель"],
                     details: [
                         {
                             title: "Удобный шаблон",
@@ -335,6 +362,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "linkedin",
                     title: "Профиль LinkedIn",
                     description: "Оптимизация, стратегии видимости и улучшение индекса SSI.",
+                    bullets: ["Аудит профиля", "Рост индекса SSI", "Стратегия видимости"],
                     details: [
                         {
                             title: "Что такое LinkedIn",
@@ -358,6 +386,7 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "career-counselling",
                     title: "Карьерное консультирование",
                     description: "Работа с выгоранием, переговоры о зарплате и смена карьеры.",
+                    bullets: ["Переговоры о зарплате", "Работа с выгоранием", "Карьерный план"],
                     details: [
                         {
                             title: "Хочу улучшений",
@@ -365,15 +394,15 @@ export const content: { en: ContentData; ru: ContentData } = {
                         },
                         {
                             title: "Вы выгорели",
-                            content: "Синдром 21 века. Вопреки мнению, выгореть проще на работе мечты, когда вы горите делом. Если работа не нравится — вы стрессуете и уходите. Если нравится — вы не замечаете стресс, пока не станет поздно. Думаете, что выгорели? Я дам примеры экологичного восстановления."
+                            content: "Синдром 21 века. Думаете, что выгорели? Я дам примеры экологичного восстановления."
                         },
                         {
                             title: "Не знаю, чего хочу",
-                            content: "Самый частый запрос. Работы не радует, но и не утомляет. Хочется перемен, но непонятно куда. Был долгий перерыв? Думаете, потеряли экспертизу? Давайте найдем то, что вас будет наполнять, и вернем уверенность."
+                            content: "Самый частый запрос. Работы не радует, но и не утомляет. Давайте найдем то, что вас будет наполнять, и вернем уверенность."
                         },
                         {
                             title: "Любой другой вопрос",
-                            content: "Работа занимает 1/3 жизни. Есть много вещей, с которыми нужна помощь. Или просто хочется выговориться и получить поддержку? Давайте пообщаемся!"
+                            content: "Работа занимает 1/3 жизни. Есть много вещей, с которыми нужна помощь. Давайте пообщаемся!"
                         }
                     ]
                 },
@@ -381,18 +410,19 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "interview-prep",
                     title: "Подготовка к интервью",
                     description: "Пробные интервью (mock), разбор вопросов и уверенность.",
+                    bullets: ["Пробное интервью", "Стратегия ответов", "Уверенность"],
                     details: [
                         {
                             title: "Обрести уверенность",
-                            content: "Встреча с новыми людьми — стресс, особенно когда от этого зависит работа. Я стану вашим 'случайным рекрутером', задам все вопросы и объясню, что я хочу услышать в ответ."
+                            content: "Я стану вашим 'случайным рекрутером', задам все вопросы и объясню, что я хочу услышать в ответ."
                         },
                         {
                             title: "Так много вопросов",
-                            content: "Мы обсудим опыт, мотивацию, soft skills. Но как насчет вас? У вас тоже есть вопросы: я расскажу, как их задавать и как интерпретировать ответы."
+                            content: "Мы обсудим опыт, мотивацию, soft skills. Я расскажу, как задавать вопросы и интерпретировать ответы."
                         },
                         {
                             title: "Покажи мне деньги",
-                            content: "Зарплатные ожидания — Святой Грааль интервью. Рекрутеры молчат, кандидаты боятся продешевить. Я помогу узнать 'вилку' и объясню, как грамотно озвучить свои ожидания."
+                            content: "Зарплатные ожидания. Я помогу узнать 'вилку' и объясню, как грамотно озвучить свои ожидания."
                         }
                     ]
                 },
@@ -400,22 +430,23 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "job-search",
                     title: "Поиск работы",
                     description: "Стратегия поиска, источники, помощь с откликами и список вакансий.",
+                    bullets: ["Стратегия поиска", "20+ Вакансий", "Помощь с откликами"],
                     details: [
                         {
                             title: "Чего вы хотите",
-                            content: "Я изучу ваши требования к новой работе и буду использовать их при поиске. Мы обсудим работодателей, индустрию, роль, график и всё остальное."
+                            content: "Я изучу ваши требования к новой работе и буду использовать их при поиске."
                         },
                         {
                             title: "Разные источники",
-                            content: "Я использую максимум источников для поиска, в зависимости от локации и индустрии. Не только LinkedIn или Indeed."
+                            content: "Я использую максимум источников для поиска, в зависимости от локации и индустрии."
                         },
                         {
                             title: "Список вариантов",
-                            content: "В итоге вы получите таблицу с минимум 20 актуальными вакансиями. Если найду больше — добавлю бесплатно. Моя цель — сделать вас счастливым, а не скрыть варианты."
+                            content: "В итоге вы получите таблицу с минимум 20 актуальными вакансиями."
                         },
                         {
                             title: "Я откликнусь сама!",
-                            content: "Да, если хотите — я сама откликнусь на большинство вакансий. Иногда это занимает 20 минут на одну заявку, и там куча полей, которые нельзя пропускать =)"
+                            content: "Если хотите — я сама откликнусь на большинство вакансий."
                         }
                     ]
                 },
@@ -423,22 +454,23 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "coaching-recruiters",
                     title: "Коучинг для рекрутеров",
                     description: "Стратегии сорсинга, оптимизация процессов и лидерство.",
+                    bullets: ["Тактика сорсинга", "Оптимизация процессов", "Навыки лидерства"],
                     details: [
                         {
                             title: "Процесс рекрутмента",
-                            content: "Обсудим стратегии поиска, где искать кандидатов. Я проверю ваши письма и стиль общения. Посмотрим, на каком этапе отваливаются кандидаты, и как их удержать."
+                            content: "Обсудим стратегии поиска, где искать кандидатов. Проверим ваши письма и стиль общения."
                         },
                         {
-                            title: "Работа с нанимающими менеджерами",
-                            content: "Ваша работа начинается ДО заявки. Главное — наладить контакт с менеджером. Вы оба профессионалы с одной целью. Завоюйте доверие, давайте фидбек и помогайте принимать решения."
+                            title: "Работа с менеджерами",
+                            content: "Главное — наладить контакт с нанимающим менеджером. Завоюйте доверие."
                         },
                         {
                             title: "Инструменты рекрутмента",
-                            content: "Посмотрим, какой софт вы используете. Вы когда-нибудь делали отчеты по найму? Давайте улучшим и это: подсветим результаты, важные для бизнеса, и уберем лишнее."
+                            content: "Посмотрим, какой софт вы используете. Улучшим отчетность."
                         },
                         {
-                            title: "Управление командой рекрутеров",
-                            content: "Я много лет руковожу командами. Я поделюсь подходом, который мотивирует команду. Как ставить цели, управлять процессами, общаться с коллегами и развивать сотрудников."
+                            title: "Управление командой",
+                            content: "Я поделюсь подходом, который мотивирует команду."
                         }
                     ]
                 },
@@ -446,10 +478,11 @@ export const content: { en: ContentData; ru: ContentData } = {
                     id: "hr-process",
                     title: "HR-процессы",
                     description: "Онбординг, Performance Review, отчетность и создание процессов.",
+                    bullets: ["Онбординг", "Performance Review", "Отчетность"],
                     details: [
                         {
                             title: "Управление HR-процессами",
-                            content: "HR делает так много вещей: Онбординг, Оценка эффективности, Увольнение, Отчетность, Счастье сотрудников. Вам дали задачу, и вы не знаете, как подступиться? Или процессов вообще нет? Я помогу."
+                            content: "HR делает так много вещей: Онбординг, Оценка эффективности, Увольнение, Отчетность."
                         }
                     ]
                 }
@@ -457,7 +490,7 @@ export const content: { en: ContentData; ru: ContentData } = {
         },
         pricing: {
             title: "Прозрачные цены",
-            description: "Подробный прайс-лист на все услуги доступен в документе.",
+            description: "Подробный прайс-лист доступен в документе.",
             cta: "Смотреть цены",
             docUrl: "https://docs.google.com/document/d/1a5ooTWCqF0J_4cnvqiKEofFd21G9f5APk-TzVbc9JH0/edit?usp=sharing"
         },
@@ -468,42 +501,58 @@ export const content: { en: ContentData; ru: ContentData } = {
                 {
                     name: "Tim",
                     role: "PR Manager",
-                    content: "Я очень рекомендую Валентину как карьерного консультанта. Она опытный профессионал, очень помогла мне с резюме и дала ценные инсайты на пробном интервью. Это помогло мне обрести уверенность, что, по-моему, самое важное в найме."
+                    content: "Я очень рекомендую Валентину как карьерного консультанта. Она опытный профессионал, очень помогла мне с резюме и дала ценные инсайты на пробном интервью.",
+                    category: "Career",
+                    isHighlight: false
                 },
                 {
                     name: "Andrey",
                     role: "Senior Software Engineer",
-                    content: "У Валентины невероятный талант превращать резюме в мощный карьерный инструмент. Её понимание процесса найма и внимание к деталям делают её идеальным помощником. Она не просто правит резюме, она стратегически переписывает его, чтобы подчеркнуть сильные стороны и пройти ATS."
+                    content: "У Валентины невероятный талант превращать резюме в мощный карьерный инструмент. Она стратегически переписывает его, чтобы подчеркнуть сильные стороны и пройти ATS.",
+                    category: "Resume",
+                    isHighlight: true
                 },
                 {
                     name: "Polina",
                     role: "Startup co-founder",
-                    content: "Я невероятно благодарна Валентине за её профессионализм. Её карьерные советы и стратегии для LinkedIn действительно работают и помогают выделиться. Валентина не просто рекрутер, а настоящий эксперт, понимающий рынок и работодателей."
+                    content: "Её карьерные советы и стратегии для LinkedIn действительно работают и помогают выделиться. Валентина не просто рекрутер, а настоящий эксперт.",
+                    category: "LinkedIn",
+                    isHighlight: false
                 },
                 {
                     name: "Tetiana",
                     role: "Agile Coach",
-                    content: "Она настоящий профессионал! Валентина точно знает, как сделать профессиональный профиль и CV. Моё резюме стало намного лучше. С ней приятно общаться, она всё сделала быстро и качественно."
+                    content: "Валентина точно знает, как сделать профессиональный профиль и CV. Моё резюме стало намного лучше.",
+                    category: "Resume",
+                    isHighlight: false
                 },
                 {
                     name: "Artem",
                     role: "Software Engineer",
-                    content: "Валентина сыграла ключевую роль в улучшении моего резюме и стратегии поиска. Её экспертное руководство помогло мне выделиться для рекрутеров, что привело к новым возможностям и отличной работе. Очень рекомендую!"
+                    content: "Валентина сыграла ключевую роль в улучшении моего резюме и стратегии поиска. Её экспертное руководство помогло мне выделиться для рекрутеров.",
+                    category: "Job Search",
+                    isHighlight: false
                 },
                 {
                     name: "Albina",
                     role: "Manager",
-                    content: "Валентина лучший карьерный консультант, которая ответила на миллион моих вопросов. Наше общение было очень терапевтичным. Я посмотрела на свой опыт с разных сторон, поверила в себя! Валя — это любовь."
+                    content: "Валентина лучший карьерный консультант. Наше общение было очень терапевтичным. Я поверила в себя!",
+                    category: "Career",
+                    isHighlight: false
                 },
                 {
                     name: "Kate",
                     role: "Project Manager",
-                    content: "Валя, спасибо большое за консультацию! После нашей встречи я вдохновилась, перелопатила всё резюме, сделала его логичным. Мягкость и деликатность в купе с честностью — твои сильные качества."
+                    content: "После нашей встречи я вдохновилась, перелопатила всё резюме, сделала его логичным. Мягкость и деликатность — твои сильные качества.",
+                    category: "Resume",
+                    isHighlight: false
                 },
                 {
                     name: "Julia",
                     role: "Product Manager",
-                    content: "Валентина — фантастический рекрутер и отличный психолог. Её поддержка в трудный период была бесценна. Профессиональная, проницательная и искренне заботливая. Очень рекомендую!"
+                    content: "Валентина — фантастический рекрутер и отличный психолог. Её поддержка в трудный период была бесценна.",
+                    category: "Career",
+                    isHighlight: true
                 }
             ]
         },
