@@ -73,6 +73,7 @@ export function Hero() {
                                 src="/images/hero-portrait.jpg"
                                 alt="Valentina Dikanskaia"
                                 fill
+                                sizes="(max-width: 640px) 200px, (max-width: 1024px) 400px, 480px"
                                 className="object-cover"
                                 priority
                             />
