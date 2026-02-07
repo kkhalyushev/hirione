@@ -29,6 +29,7 @@ export function About() {
                                 src="/images/about-portrait.jpg"
                                 alt="About Valentina"
                                 fill
+                                sizes="(max-width: 640px) 200px, 350px"
                                 className="object-cover"
                             />
                         </div>
